@@ -16,14 +16,14 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 
-@Getter
 public class OeeCycleAlgorithmSharding implements ComplexKeysShardingAlgorithm<String> {
 
-    private Properties prop;
+    @Getter
+    private Properties props;
 
     @Override
     public void init(Properties props) {
-        this.prop = props;
+        this.props = props;
     }
 
     @Override
