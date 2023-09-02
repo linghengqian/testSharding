@@ -1,21 +1,16 @@
 dataSources:
-#  default-data-source-name: master
   master:
     dataSourceClassName: com.zaxxer.hikari.HikariDataSource
-    driverClassName: com.mysql.cj.jdbc.Driver
-    jdbcUrl: jdbc:mysql://localhost:3406/oee?serverTimezone=GMT%2B8&characterEncoding=utf8&useSSL=true
+    driverClassName: org.h2.Driver
+    jdbcUrl: jdbc:h2:mem:oee;INIT=RUNSCRIPT FROM 'classpath:db/init.sql'
     username: zhang
     password: 123456
-
-
 
 props:
   sql-show: true
 
-
 rules:
   - !SINGLE
     tables:
-      # MySQL 风格
-      - master.* # 加载指定数据源中的全部单表
+      - master.*
     defaultDataSource: master
